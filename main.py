@@ -7,7 +7,7 @@ def hello():
     mp.current_process().daemon = False
 
     process = 3
-    pool = mp.Pool(process)
+    pool = mp.Pool()
     pool.starmap(bye, [[] for _ in range(process)])
 
 def bye():
@@ -17,5 +17,5 @@ if __name__ == '__main__':
     print('main', os.getpid())
 
     process = 2
-    pool = mp.Pool(process)
+    pool = mp.Pool()
     pool.starmap(hello, [[] for _ in range(process)])
